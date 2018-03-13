@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class SqlConnector {
-
-	public Connection getConnection() {
-		
+	
+	private Connection connection;
+	private static SqlConnector instance;
+	
+	private SqlConnector() {
 		try {
 			
 			// Variables needed for connection 
@@ -17,18 +19,30 @@ public class SqlConnector {
 			// Calls upon the methods in the class driver 
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			Connection conn = null;
-			
 			// Attempting connection to database 
-			conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);		
-			
-			return conn;
-			
+			this.connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);		
 		}
 		catch(Exception e) {
-			return null;
+			System.out.println("Database cannot be connected: " + e.getMessage());
 		}
-					
-	} // end of main 
+	} // end of constructor
+	
+
+	public Connection getConnection() {
+		return connection;				
+	} // end of getConnection
+	
+    public static SqlConnector getInstance() {
+    	try {
+            if (instance == null) {
+                instance = new SqlConnector();
+            } else if (instance.getConnection().isClosed()) {
+                instance = new SqlConnector();
+            }
+    	}catch(Exception e) {
+    		System.out.println("Cannot get instance.");
+    	}
+		return instance;
+    }
 	
 } // end of SqlConnector

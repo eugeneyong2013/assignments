@@ -4,13 +4,13 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.optimum.dao.DisplayDAO;
+import com.optimum.dao.AccountDAOImpl;
 import com.optimum.pojo.Account;
 
 
 public class DisplayController {
 	
-	DisplayDAO refDisplayDAO = new DisplayDAO();
+	AccountDAOImpl refAccountDAOImpl = new AccountDAOImpl();
 	Scanner sc = new Scanner(System.in);
 	String email;
 	String password;
@@ -55,10 +55,10 @@ public class DisplayController {
         boolean validateEmail = m.matches();
 		
         // if choice is forgotPassword
-        if(validateEmail == true && refDisplayDAO.checkLoginId(email) == true && forgotPassword == true) {
-        	refDisplayDAO.validateSecurityQnAndAns(email);
+        if(validateEmail == true && refAccountDAOImpl.checkLoginId(email) == true && forgotPassword == true) {
+        	refAccountDAOImpl.validateSecurityQnAndAns(email);
         }
-        else if(validateEmail == true && refDisplayDAO.checkLoginId(email) == true) {
+        else if(validateEmail == true && refAccountDAOImpl.checkLoginId(email) == true) {
 			showPasswordField();
         }else {
 			System.out.println("Invalid ID please try again.");
@@ -70,7 +70,7 @@ public class DisplayController {
 	
 	public void showPasswordField() {
 		
-		String status = refDisplayDAO.getUserStatus(email);
+		String status = refAccountDAOImpl.getUserStatus(email);
 		
 		if(status.equals("lock")) {
 			System.out.println("Account is locked.");
@@ -91,9 +91,9 @@ public class DisplayController {
 		System.out.print("Password: ");
 		password = sc.next();
 			
-		if(refDisplayDAO.checkPassword(password.trim()).equals("trueAdmin")) {
+		if(refAccountDAOImpl.checkPassword(password.trim()).equals("trueAdmin")) {
 			showAdminScreen();
-		}else if(refDisplayDAO.checkPassword(password.trim()).equals("trueUser")) {
+		}else if(refAccountDAOImpl.checkPassword(password.trim()).equals("trueUser")) {
 			showUserScreen();			
 		}else {
 			System.out.println("Invalid password, please try again.");
@@ -103,7 +103,7 @@ public class DisplayController {
 			if(attemptsLeft == 0) {
 				System.out.println("Your account is locked.");
 				System.out.println();
-				refDisplayDAO.changeUserStatus(email);
+				refAccountDAOImpl.changeUserStatus(email);
 			}
 			
 			System.out.println("You have " + attemptsLeft + " attempts left before account is locked.");		
@@ -230,7 +230,7 @@ public class DisplayController {
 			showNameField();
 		}
 		if(adminChoice == 2) {
-			refDisplayDAO.viewUserList();
+			refAccountDAOImpl.viewUserList();
 		}
 		if(adminChoice == 3) {
 			showHomeScreen();
@@ -246,7 +246,7 @@ public class DisplayController {
 		Account refAccount = new Account(name,nric,email,dob,newMobile,password,"","","",1,"");
 		
 		// send it to DAO to update into sql database
-		refDisplayDAO.registerNewUser(refAccount);
+		refAccountDAOImpl.registerNewUser(refAccount);
 	}
 	
 } // end of DisplayController 
