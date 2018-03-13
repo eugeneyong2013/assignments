@@ -239,7 +239,6 @@ public class DisplayDAO {
 		
 		try {
 			
-			String info = "";
 			Statement statement = conn.createStatement();
 			ResultSet result = statement.executeQuery("Select nric,email,mobile from credentials");
 			
