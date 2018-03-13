@@ -51,7 +51,7 @@ public class DisplayController {
 		// To check and validate email pattern
 		String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
-        java.util.regex.Matcher m = p.matcher(email);
+        java.util.regex.Matcher m = p.matcher(email.trim());
         boolean validateEmail = m.matches();
 		
         // if choice is forgotPassword
@@ -91,9 +91,9 @@ public class DisplayController {
 		System.out.print("Password: ");
 		password = sc.next();
 			
-		if(refDisplayDAO.checkPassword(password).equals("trueAdmin")) {
+		if(refDisplayDAO.checkPassword(password.trim()).equals("trueAdmin")) {
 			showAdminScreen();
-		}else if(refDisplayDAO.checkPassword(password).equals("trueUser")) {
+		}else if(refDisplayDAO.checkPassword(password.trim()).equals("trueUser")) {
 			showUserScreen();			
 		}else {
 			System.out.println("Invalid password, please try again.");
@@ -117,7 +117,7 @@ public class DisplayController {
 		name = sc.next();
 		
 		// To check and validate the name pattern
-	    boolean validateName = name.matches("[a-zA-Z]*");
+	    boolean validateName = name.trim().matches("[a-zA-Z]*");
 	    
 	    if(validateName == true) {
 	    	showNricField();
@@ -130,7 +130,7 @@ public class DisplayController {
 	public void showNricField() {
 		System.out.print("Enter nric (Upper Case): ");
 		nric = sc.next();
-		boolean validateNric = nric.matches("\\p{Upper}\\d{7}\\p{Upper}");
+		boolean validateNric = nric.trim().matches("\\p{Upper}\\d{7}\\p{Upper}");
 		
 		if(validateNric == true) {
 			showEmailField();
@@ -147,7 +147,7 @@ public class DisplayController {
 		// To check and validate email pattern
 		String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
-        java.util.regex.Matcher m = p.matcher(email);
+        java.util.regex.Matcher m = p.matcher(email.trim());
         boolean validateEmail = m.matches();
 		
 		if(validateEmail == true) {
@@ -165,7 +165,7 @@ public class DisplayController {
 		dob = sc.next();
 		
 		Pattern pattern = Pattern.compile("(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)");
-		Matcher match = pattern.matcher(dob);
+		Matcher match = pattern.matcher(dob.trim());
 		boolean validateDob = match.matches();
 		
 		if(validateDob == true) {
@@ -182,7 +182,7 @@ public class DisplayController {
 		
 		String mPattern = "^((\\+|00)(\\d{1,3})[\\s-]?)?(\\d{8})$";
 		Pattern pattern = Pattern.compile(mPattern);
-		Matcher match = pattern.matcher(mobile);
+		Matcher match = pattern.matcher(mobile.trim());
 		boolean validateMobile = match.matches();
 		
 		if(validateMobile == true) {
@@ -241,7 +241,7 @@ public class DisplayController {
 	public void showAccount() {
 			
 		// to create a temporary password for first time users
-		String password = nric.substring(1,5) + mobile.substring(4,8);
+		String password = nric.substring(1,5) + mobile.substring(4);
 
 		Account refAccount = new Account(name,nric,email,dob,newMobile,password,"","","",1,"");
 		
