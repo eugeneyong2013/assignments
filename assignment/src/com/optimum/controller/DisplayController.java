@@ -1,6 +1,8 @@
 package com.optimum.controller;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -129,7 +131,7 @@ public class DisplayController {
 	} // end of showNameField
 	
 	public void showNricField() {
-		System.out.print("Enter nric: ");
+		System.out.print("Enter nric (Upper Case): ");
 		nric = sc.next();
 		boolean validateNric = nric.matches("\\p{Upper}\\d{7}\\p{Upper}");
 		
@@ -240,9 +242,10 @@ public class DisplayController {
 	
 	
 	public void showAccount() {
-		
+			
 		// to create a temporary password for first time users
 		String password = nric.substring(1,5) + mobile.substring(4,8);
+
 		Account refAccount = new Account(name,nric,email,dob,newMobile,password,"","","",1,"");
 		
 		// send it to DAO to update into sql database

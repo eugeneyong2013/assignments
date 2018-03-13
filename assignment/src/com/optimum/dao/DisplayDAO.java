@@ -1,6 +1,7 @@
 package com.optimum.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -233,18 +234,56 @@ public class DisplayDAO {
 	
 	public void registerNewUser(Account account) {
 		
+		DisplayController refDisplayController = new DisplayController();
+		Boolean noDuplicate = true;
+		
 		try {
-			// create query to be passed on to update database in sql 
-			String query = "insert into credentials(name,nric,email,dob,mobile,password) values(?,?,?,?,?,?)";
-			PreparedStatement preparedStatement = conn.prepareStatement(query);
-			preparedStatement.setString(1, account.getName());
-			preparedStatement.setString(2, account.getNric());
-			preparedStatement.setString(3, account.getEmail());
-			preparedStatement.setString(4, account.getDob());
-			preparedStatement.setInt(5, account.getMobile());
-			preparedStatement.setString(6, account.getPassword());
-			preparedStatement.executeUpdate();
-					
+			
+			String info = "";
+			Statement statement = conn.createStatement();
+			ResultSet result = statement.executeQuery("Select nric,email,mobile from credentials");
+			
+			String nricResult, emailResult;
+			int mobileResult;
+			
+			while(result.next()) {
+				nricResult = result.getString("nric");
+				emailResult = result.getString("email");
+				mobileResult = result.getInt("mobile");
+				
+				if(nricResult.equals(account.getNric())) {
+					System.out.println("The NRIC have been used before. Please try again.");
+					refDisplayController.showNameField();
+				}else if(emailResult.equals(account.getEmail())) {
+					System.out.println("The Email have been used before. Please try again.");
+					refDisplayController.showNameField();
+				}else if(mobileResult == account.getMobile()) {
+					System.out.println("The Mobile have been used before. Please try again.");
+					refDisplayController.showNameField();
+				}else {
+					noDuplicate = true;
+				}
+				
+			}
+			
+			if(noDuplicate == true) {
+				String year = account.getDob().substring(6);
+				String month = account.getDob().substring(3, 5);
+				String day = account.getDob().substring(0, 2);
+				String dob = year + "-" + month + "-" + day;
+				
+				// create query to be passed on to update database in sql 
+				String query = "insert into credentials(name,nric,email,dob,mobile,password) values(?,?,?,?,?,?)";
+				PreparedStatement preparedStatement = conn.prepareStatement(query);
+				preparedStatement.setString(1, account.getName());
+				preparedStatement.setString(2, account.getNric());
+				preparedStatement.setString(3, account.getEmail());
+				preparedStatement.setDate(4, Date.valueOf(dob));
+				preparedStatement.setInt(5, account.getMobile());
+				preparedStatement.setString(6, account.getPassword());
+				preparedStatement.executeUpdate();
+			}
+						
 		}catch(Exception e) {
 			System.out.println("Account cannot be created.");
 			System.out.println(e.getMessage());
