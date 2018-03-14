@@ -24,6 +24,7 @@ public class AccountDAOImpl implements AccountDAO {
 	
 	// Establishing a connection to the database
 	Connection conn = SqlConnector.getInstance().getConnection();
+	DisplayController refDisplayController = new DisplayController();
 	Scanner sc = new Scanner(System.in);
 	String email;
 	String password;
@@ -115,7 +116,6 @@ public class AccountDAOImpl implements AccountDAO {
 			PreparedStatement preparedStatement = conn.prepareStatement(query);
 			preparedStatement.executeUpdate();
 			choosingSecurityQns();
-			DisplayController refDisplayController = new DisplayController();
 			refDisplayController.showUserScreen();
 		}catch(Exception e) {
 			System.out.println("Password cannot be changed.");
@@ -238,7 +238,6 @@ public class AccountDAOImpl implements AccountDAO {
 	@Override
 	public void registerNewUser(Account account) {
 		
-		DisplayController refDisplayController = new DisplayController();
 		Boolean noDuplicate = true;
 		
 		try {
@@ -297,9 +296,7 @@ public class AccountDAOImpl implements AccountDAO {
 	
 	@Override
 	public void sendMail(String regName, String regEmail, String regPassword) {
-		
-		  DisplayController refDisplayController = new DisplayController();	
-		
+				
 		  String to = regEmail; //change accordingly  
 	      String from = "eugene.yong.2013@gmail.com"; 
 	      String passwordEmail = "armormew2";
@@ -394,8 +391,7 @@ public class AccountDAOImpl implements AccountDAO {
 			}
 			// back to admin homepage
 			if(choice == 2) {
-				DisplayController displayController = new DisplayController();
-				displayController.showAdminScreen();
+				refDisplayController.showAdminScreen();
 			}
 			
 			
@@ -406,8 +402,6 @@ public class AccountDAOImpl implements AccountDAO {
 	
 	@Override
 	public void changeUserStatus(String refUserToChangeStatus) {
-	
-		DisplayController refDisplayController = new DisplayController();
 		
 		try {
 			
