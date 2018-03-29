@@ -1,0 +1,162 @@
+
+.pagination > li > a, .pagination > li > span{background-color:white; color:black}
+
+.pagination > li.active > a, .pagination > li.active > span{background-color: orange}
+
+div.c-wrapper{
+    width: 80%; /* for example */
+    margin: auto;
+}
+
+.carousel {
+	
+    width:740px;
+    height:650px;
+    position:absolute;
+    left:0%;
+    top:0%;
+    margin:110px 0 0 -560px;
+}
+
+.profile {
+    height: auto; 
+    width: auto; 
+    max-width: 140px; 
+    max-height: 140px;
+    position:absolute;
+    left:28%;
+    top:55%;
+    margin:-180px 0 0 -100px;
+}
+
+
+.myScreen {	
+    box-shadow: 2px 2px orange;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+	width:1020px;
+    height:600px;
+    position:absolute;
+    left:35%;
+    top:40%;
+    margin:-240px 0 0 -300px;
+}
+
+.myLogout {	
+    box-shadow: 2px 2px orange;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+	width:300px;
+    height:200px;
+    position:absolute;
+    left:46%;
+    top:43%;
+    margin:-130px 0 0 -105px;
+}
+
+
+.myImg02 {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+    position:absolute;
+    left:53%;
+    top:15%;
+    margin:-130px 0 0 -190px;
+}
+
+.myImg03 {
+    height: auto; 
+    width: auto; 
+    max-width: 140px; 
+    max-height: 140px;
+    position:absolute;
+    left:61%;
+    top:0%;
+    margin:-100px 0 0 -104px;
+}
+
+.myImg04 {
+    height: auto; 
+    width: auto; 
+    max-width: 200px; 
+    max-height: 200px;
+    position:absolute;
+    left:80%;
+    top:40%;
+    margin:-50px 0 0 -190px;
+}
+
+.myImg05 {
+    height: auto; 
+    width: auto; 
+    max-width: 10px; 
+    max-height: 10px;
+    position:absolute;
+    left:80%;
+    top:60%;
+    margin:-50px 0 0 -190px;
+}
+
+
+.myCenter {	
+    box-shadow: 2px 2px orange;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+	width:450px;
+    height:330px;
+    position:absolute;
+    left:72%;
+    top:39%;
+    margin:-100px 0 0 -175px;
+}
+
+.myTest {	
+    background-color: #f2f2f2;
+    border-radius: 10px;
+	width:400px;
+    height:280px;
+    position:absolute;
+    left:46%;
+    top:43%;
+    margin:-100px 0 0 -150px;
+}
+
+.myImg {
+    height: auto; 
+    width: auto; 
+    max-width: 270px; 
+    max-height: 270px;
+    position:absolute;
+    left:55%;
+    top:0%;
+    margin:-25px 0 0 -155px;
+}
+
+.myHeader {
+  overflow: hidden;
+  background-color: black;
+  padding: 20px 10px;
+}
+
+.myFooter {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: SteelBlue;
+   text-align: center;
+}
+
+.ScrollStyle {
+  	min-height: 400px;
+  	max-height: 400px;
+  	max-width: 600px;
+  	min-width: 600px;
+  	display: flex;
+  	flex-direction: column;
+    overflow-y: scroll;
+    text-align: center;
+} 
