@@ -1,0 +1,72 @@
+CREATE TABLE `jee.eugene`.`jeecredentials` (
+  
+`employeeId` INT NOT NULL AUTO_INCREMENT,
+  
+`emailAddress` VARCHAR(300) NULL,
+  
+`password` VARCHAR(300) NULL,
+  
+`fullName` VARCHAR(300) NULL,
+  
+`status` VARCHAR(45) NULL DEFAULT 'unlock',
+  
+`role` VARCHAR(45) NULL DEFAULT 'user',
+  
+`address` VARCHAR(300) NULL,
+  
+`dob` DATE NULL,
+  
+`country` VARCHAR(300) NULL,
+  
+`department` VARCHAR(300) NULL,
+  
+`mobile` VARCHAR(11) NULL,
+  
+`nric` VARCHAR(9) NULL,
+  
+`qualification` VARCHAR(300) NULL,
+  
+`gender` VARCHAR(45) NULL,
+  
+`lastLogin` DATETIME NULL,
+  
+`certificate` LONGBLOB NULL,
+  
+`profilePic` LONGBLOB NULL,
+  
+PRIMARY KEY (`employeeId`));
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `mobile`, `nric`) VALUES ('1', 'admin@admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'unlock', 'admin', '19991999', 'A1234567B');
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `qualification`, `gender`, `certificate`, `profilePic`) VALUES ('2', 'eugene133@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'Yong Wei Jie Eugene', 'unlock', 'user', 'Pasir Ris', '1882-09-24', 'Singapore', 'hr', '92293888', 'S9234282D', 'university', 'male', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `qualification`, `gender`, `certificate`, `profilePic`) VALUES ('3', 'eugene01@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'Yong Wei Jie Eugene', 'unlock', 'user', 'Pasir Ris', '1990-02-02', 'Singapore', 'development', '11111111', 'U9234282D', 'juniorCollege', 'male', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `qualification`, `gender`, `certificate`, `profilePic`) VALUES ('4', 'eugene0111@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'Yong Wei Jie Eugene', 'unlock', 'user', 'Pasir Ris', '1990-02-01', 'Singapore', 'pr', '19982828', 'B9234282D', 'juniorCollege', 'female', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `qualification`, `gender`, `lastLogin`, `certificate`, `profilePic`) VALUES ('5', 'eugene.yong.2013@sis.smu.edu.sg', '9741da9f7cdd416b0c4b63811770bd6e', 'Eugene Yong', 'unlock', 'user', 'Tampines', '1991-02-24', 'Singapore', 'development', '92283333', 'S9234282P', 'secondary', 'male', '2018-03-28 00:00:00', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `qualification`, `gender`, `certificate`, `profilePic`) VALUES ('6', 'thisisatest@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'Vayne Wah', 'unlock', 'user', 'This is a Test', '2018-03-31', 'Singapore', 'hr', '86992713', 'S9000000J', 'polytechnic', 'male', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `certificate`, `profilePic`) VALUES ('7', 'test01@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'test01', 'unlock', 'user', 'This is a Test', '2018-03-31', 'Singapore', 'development', '10000000', 'S1000000S', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `certificate`, `profilePic`) VALUES ('8', 'test02@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'test02', 'unlock', 'user', 'This is a Test', '2018-03-31', 'Singapore', 'development', '10000001', 'S1000001S', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `certificate`, `profilePic`) VALUES ('9', 'test03@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'test03', 'unlock', 'user', 'This is a Test', '2018-03-31', 'Singapore', 'development', '10000002', 'S1000002S', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `certificate`, `profilePic`) VALUES ('10', 'test04@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'test04', 'unlock', 'user', 'This is a Test', '2018-03-31', 'Singapore', 'development', '10000003', 'S1000003S', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `certificate`, `profilePic`) VALUES ('11', 'test05@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'test05', 'unlock', 'user', 'This is a Test', '2018-03-31', 'Singapore', 'development', '10000004', 'S1000004S', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `certificate`, `profilePic`) VALUES ('12', 'test06@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'test06', 'unlock', 'user', 'This is a Test', '2018-03-31', 'Singapore', 'development', '10000005', 'S1000005S', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `certificate`, `profilePic`) VALUES ('13', 'test07@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'test07', 'unlock', 'user', 'This is a Test', '2018-03-31', 'Singapore', 'development', '10000006', 'S1000006S', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `certificate`, `profilePic`) VALUES ('14', 'test08@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'test08', 'unlock', 'user', 'This is a Test', '2018-03-31', 'Singapore', 'development', '10000007', 'S1000007S', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `certificate`, `profilePic`) VALUES ('15', 'test09@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'test09', 'unlock', 'user', 'This is a Test', '2018-03-31', 'Singapore', 'development', '10000008', 'S1000008S', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `certificate`, `profilePic`) VALUES ('16', 'test10@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'test10', 'unlock', 'user', 'This is a Test', '2018-03-31', 'Singapore', 'development', '10000009', 'S1000009S', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `certificate`, `profilePic`) VALUES ('17', 'test11@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'test11', 'unlock', 'user', 'This is a Test', '2018-03-31', 'Singapore', 'development', '10000010', 'S1000010S', ?, ?);
+
+INSERT INTO `jee.eugene`.`jeecredentials` (`employeeId`, `emailAddress`, `password`, `fullName`, `status`, `role`, `address`, `dob`, `country`, `department`, `mobile`, `nric`, `qualification`, `gender`, `certificate`, `profilePic`) VALUES ('18', 'eueue@gmail.com', '9741da9f7cdd416b0c4b63811770bd6e', 'Esmond', 'unlock', 'user', 'Pasir Ris', '1111-01-01', 'Singapore', 'hr', '10029311', 'O9234282S', 'university', 'male', ?, ?);
